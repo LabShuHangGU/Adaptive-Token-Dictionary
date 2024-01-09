@@ -1,1 +1,2 @@
-# Adaptive-Token-Dictionary-
+# Adaptive-Token-Dictionary
+Coming soon~
