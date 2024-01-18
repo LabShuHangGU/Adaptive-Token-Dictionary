@@ -12,3 +12,17 @@ Classical Image Super-Resolution
 Lightweight Image Super-Resolution
 ![lightweight image sr](/figures/lightweight.png)
 
+
+## Citation
+
+```
+@misc{zhang2024transcending,
+      title={Transcending the Limit of Local Window: Advanced Super-Resolution Transformer with Adaptive Token Dictionary}, 
+      author={Leheng Zhang and Yawei Li and Xingyu Zhou and Xiaorui Zhao and Shuhang Gu},
+      year={2024},
+      eprint={2401.08209},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
