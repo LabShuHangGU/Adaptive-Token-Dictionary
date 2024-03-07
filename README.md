@@ -115,7 +115,7 @@ python basicsr/test.py -opt options/test/103_ATD_light_SRx4_finetune.yml
 
 ## Visual Results
 
-- Complete visual results can be downloaded in [link](https://drive.google.com/drive/folders/1HwEbAGU6WEw9ZGbFdt__BOJo_5DKflEb?usp=sharing)
+- Complete visual results can be downloaded in [link](https://drive.google.com/drive/folders/1HwEbAGU6WEw9ZGbFdt__BOJo_5DKflEb?usp=sharing).
 
 <img width="800" src="figures/viscomp_027.png">
 <img width="800" src="figures/viscomp_momo.png">
