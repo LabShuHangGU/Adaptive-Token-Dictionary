@@ -12,8 +12,8 @@ datasets:
   train:
     name: DF2K
     type: PairedImageDataset
-    dataroot_gt: datasets/DIV2K/DIV2K_train_HR
-    dataroot_lq: datasets/DIV2K/DIV2K_train_LR_bicubic/X3
+    dataroot_gt: datasets/DF2K/DF2K_train_HR
+    dataroot_lq: datasets/DF2K/DF2K_train_LR_bicubic/X3
     filename_tmpl: '{}x3'
     io_backend:
       type: disk
