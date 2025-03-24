@@ -2,7 +2,7 @@ addict
 fairscale
 future
 lmdb
-numpy>=1.17
+numpy==1.26.4
 opencv-python
 Pillow
 pyyaml

@@ -2,9 +2,9 @@
 
 This repository is an official implementation of the paper "Transcending the Limit of Local Window: Advanced Super-Resolution Transformer with Adaptive Token Dictionary", CVPR, 2024.
 
-[[Arxiv](https://arxiv.org/abs/2401.08209)] [[visual results](https://drive.google.com/drive/folders/1HwEbAGU6WEw9ZGbFdt__BOJo_5DKflEb?usp=sharing)] [[pretrained models](https://drive.google.com/drive/folders/1D3BvTS1xBcaU1mp50k3pBzUWb7qjRvmB?usp=sharing)]
+[[Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_Transcending_the_Limit_of_Local_Window_Advanced_Super-Resolution_Transformer_with_CVPR_2024_paper.html)] [[arXiv](https://arxiv.org/abs/2401.08209)] [[Visual Results](https://drive.google.com/drive/folders/1HwEbAGU6WEw9ZGbFdt__BOJo_5DKflEb?usp=sharing)] [[Pretrained Models](https://drive.google.com/drive/folders/1D3BvTS1xBcaU1mp50k3pBzUWb7qjRvmB?usp=sharing)]
 
-By Leheng Zhang, Yawei Li, Xingyu Zhou, Xiaorui Zhao, and Shuhang Gu.
+By [Leheng Zhang](https://scholar.google.com/citations?user=DH1CJqkAAAAJ), [Yawei Li](https://scholar.google.com/citations?user=IFLsTGsAAAAJ), [Xingyu Zhou](https://scholar.google.com/citations?user=dgO3CyMAAAAJ), [Xiaorui Zhao](https://scholar.google.com/citations?user=kiG_knoAAAAJ), and [Shuhang Gu](https://scholar.google.com/citations?user=-kSTt40AAAAJ).
 
 > **Abstract:** Single Image Super-Resolution is a classic computer vision problem that involves estimating high-resolution (HR) images from low-resolution (LR) ones. Although deep neural networks (DNNs), especially Transformers for super-resolution, have seen significant advancements in recent years, challenges still remain, particularly in limited receptive field caused by window-based self-attention. To address these issues, we introduce a group of auxiliary **A**daptive **T**oken **D**ictionary to SR Transformer and establish an **ATD**-SR method. The introduced token dictionary could learn prior information from training data and adapt the learned prior to specific testing image through an adaptive refinement step. The refinement strategy could not only provide global information to all input tokens but also group image tokens into categories. Based on category partitions, we further propose a category-based self-attention mechanism designed to leverage distant but similar tokens for enhancing input features. The experimental results show that our method achieves the best performance on various single image super-resolution benchmarks.
 > 
@@ -17,6 +17,7 @@ By Leheng Zhang, Yawei Li, Xingyu Zhou, Xiaorui Zhao, and Shuhang Gu.
 
 ## Contents
 1. [Enviroment](#environment)
+1. [Fast Inference](#fast-inference)
 1. [Training](#training)
 1. [Testing](#testing)
 1. [Results](#results)
@@ -40,10 +41,24 @@ pip install -r requirements.txt
 python setup.py develop
 ```
 
+## Fast Inference
+Using ```inference.py``` for fast inference on single image or multiple images within the same folder.
+```bash
+# For classical SR
+python inference.py -i test_image.png -o results/test/ --scale 4 --task classical
+python inference.py -i test_images/ -o results/test/ --scale 4 --task classical
+
+# For lightweight SR
+python inference.py -i test_image.png -o results/test/ --scale 4 --task lightweight
+python inference.py -i test_images/ -o results/test/ --scale 4 --task lightweight
+```
+The ATD SR model processes the image ```test_image.png``` or images within the ```test_images/``` directory. The results will be saved in the ```results/test/``` directory.
+
 
 ## Training
 ### Data Preparation
 - Download the training dataset DF2K ([DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) + [Flickr2K](https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar)) and put them in the folder `./datasets`.
+- It's recommanded to refer to the data preparation from [BasicSR](https://github.com/XPixelGroup/BasicSR/blob/master/docs/DatasetPreparation.md) for faster data reading speed.
 
 ### Training Commands
 - Refer to the training configuration files in `./options/train` folder for detailed settings.
@@ -124,13 +139,13 @@ python basicsr/test.py -opt options/test/103_ATD_light_SRx4_finetune.yml
 ## Citation
 
 ```
-@misc{zhang2024transcending,
-      title={Transcending the Limit of Local Window: Advanced Super-Resolution Transformer with Adaptive Token Dictionary}, 
-      author={Leheng Zhang and Yawei Li and Xingyu Zhou and Xiaorui Zhao and Shuhang Gu},
-      year={2024},
-      eprint={2401.08209},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@InProceedings{Zhang_2024_CVPR,
+    author    = {Zhang, Leheng and Li, Yawei and Zhou, Xingyu and Zhao, Xiaorui and Gu, Shuhang},
+    title     = {Transcending the Limit of Local Window: Advanced Super-Resolution Transformer with Adaptive Token Dictionary},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {2856-2865}
 }
 ```
 
